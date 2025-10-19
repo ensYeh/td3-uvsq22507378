@@ -51,10 +51,7 @@ www.uvsq.fr
 ....
 > add 193.51.25.24 pikachu.uvsq.fr
 > ls -a uvsq.fr
-193.51.25.12 ecampus.uvsq.fr
-193.51.25.24 pikachu.uvsq.fr
-193.51.31.90 www.uvsq.fr
-193.51.31.154 poste.uvsq.fr
+
 > add 193.51.25.90 www.uvsq.fr
 ERREUR : Le nom de machine existe déjà !
 ....

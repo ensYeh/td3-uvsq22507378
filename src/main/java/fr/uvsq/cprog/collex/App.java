@@ -8,7 +8,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
-
+        Dns dns=new Dns();
+       System.out.println(dns.toString());
     }
 }
