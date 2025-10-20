@@ -58,6 +58,8 @@ public class DnsTUI {
         if(NomMachine.checkNom(parts[0])){
           //  if (parts.length < 2) throw new IllegalArgumentException("Usage: nom <machine>");
             return new RechercheNomCommand(parts[0]);
+        }else if(parts[0].equalsIgnoreCase("add")){
+            return new AjoutCommand(parts[1],parts[2]);
         }
 
        else return null;
