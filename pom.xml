@@ -80,7 +80,7 @@
                   <archive>
                       <manifest>
                           <addClasspath>true</addClasspath>
-                          <mainClass>fr.uvsq.cprog.mvnjunit.App</mainClass>
+                          <mainClass>fr.uvsq.cprog.collex.App</mainClass>
                       </manifest>
                   </archive>
               </configuration>
@@ -97,7 +97,7 @@
                   </descriptorRefs>
                   <archive>
                       <manifest>
-                          <mainClass>fr.uvsq.cprog.mvnjunit.App</mainClass>
+                          <mainClass>fr.uvsq.cprog.collex.App</mainClass>
                       </manifest>
                   </archive>
               </configuration>
