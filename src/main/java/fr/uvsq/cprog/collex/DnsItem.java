@@ -29,28 +29,34 @@ public class DnsItem {
     }
 
     public static Boolean compareIp(DnsItem d,String s){
-      return  d.getIp().getipAdress().equals(s);
+      String ip=d.getIp().getipAdress();
+      return ip.equals(s);
 
     }
     public static Boolean compareNom(DnsItem d,String s){
-      return  d.getNom().getNomMachine().equals(s);
-    }
+      //return  d.getNom().getNomMachine().equals(s);
+    String nommachine=d.getNom().getNomMachine();
+    return s.equals(nommachine);
+  }
 
-    public static boolean compareDomain(DnsItem d,String s) {
-        String domainName = d.getNom().getNomMachine(); // récupère le nom complet de la machine
+    public static boolean compareDomain(DnsItem d, String s) {
+        String domainName = d.getNom().getNomMachine();
         if (domainName == null || s == null) {
-            return false; // sécurité null
-        }
-
-        String[] parts = domainName.split("\\."); // bien échapper le point
-
-        if (parts.length >= 2) {
-            // on compare le domaine (par ex. "example" dans "www.example.com")
-            return s.equals(parts[parts.length - 2]);
-        } else if (parts.length == 1) {
-            return s.equals(parts[0]);
-        } else {
             return false;
         }
-  }
+
+        String[] parts = domainName.split("\\.");
+        String[] partss = s.split("\\.");
+
+        if (parts.length >= partss.length) {
+            boolean res = true;
+            // Comparer depuis la FIN des deux tableaux
+            for(int i = 0; i < partss.length; i++){
+                int partsIndex = parts.length - partss.length + i;
+                res = res && parts[partsIndex].equals(partss[i]);
+            }
+            return res;
+        }
+        return false;
+    }
 }
