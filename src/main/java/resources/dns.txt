@@ -1,0 +1,8 @@
+193.51.25.12 ecampus.uvsq.fr
+193.51.25.24 pikachu.uvsq.fr
+193.51.31.90 www.uvsq.fr
+193.51.31.154 poste.uvsq.fr
+1.1.1.1 a.a.a.a
+1.1.1.1 a.a.aa
+10.0.0.1 nouveau.example.com
+1.1.1.1 a.a.a
