@@ -59,4 +59,21 @@ public class DnsItem {
         }
         return false;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        DnsItem dnsItem = (DnsItem) o;
+
+        // Deux DnsItem sont égaux s'ils ont la même IP ET le même nom
+        return this.ip.getipAdress().equals(dnsItem.ip.getipAdress()) &&
+                this.nom.getNomMachine().equals(dnsItem.nom.getNomMachine());
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(ip.getipAdress(), nom.getNomMachine());
+    }
 }

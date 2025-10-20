@@ -62,7 +62,6 @@ public class Dns {
             if(!itemes.contains(e)) {
                 itemes.add(e);
                 saveItemToFile(e);
-
                 return 0;
             }
             else{
@@ -70,14 +69,25 @@ public class Dns {
             }
     }
     private void saveItemToFile(DnsItem item) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(Config.FILE_PATH, true))) {
-            writer.write(item.getIp().getipAdress());
-            writer.write(" ");
-            writer.write(item.getNom().getNomMachine());
-            writer.write("\n");
-            writer.flush();
+        try {
+            java.io.File file = new java.io.File(Config.FILE_PATH);
+
+            // Debug: affiche le chemin absolu
+            System.out.println("Sauvegarde dans: " + file.getAbsolutePath());
+
+            // Créer les répertoires s'ils n'existent pas
+            file.getParentFile().mkdirs();
+
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+                writer.write("\n");
+                writer.write(item.getIp().getipAdress());
+                writer.write(" ");
+                writer.write(item.getNom().getNomMachine());
+                System.out.println("Item sauvegardé avec succès");
+            }
         } catch (IOException e) {
             System.err.println("Erreur lors de la sauvegarde du fichier : " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
