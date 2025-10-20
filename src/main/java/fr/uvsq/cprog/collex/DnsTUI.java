@@ -38,10 +38,14 @@ public class DnsTUI {
                 throw new IllegalArgumentException("Commande inconnue: " + parts[0]);
         }*/
         if(parts[0].equals("quit")){
+
             return new QuitterCommand();
 
         }else
         if(parts[0].equals("add")){
+            if (parts.length < 3) {
+                throw new IllegalArgumentException("Usage: add <ip > <fqdn>");
+            }
             return new AjoutCommand(parts[1],parts[2]);
         }else
 
@@ -51,9 +55,9 @@ public class DnsTUI {
             }
 
             if (parts.length == 3 && parts[1].equals("-a")) {
-                return null; // tri par IP
+                return new RechercheDomaineCommand(parts[2],true);
             } else {
-                return new RechercheDomaineCommand(parts[1]);
+                return new RechercheDomaineCommand(parts[1],false);
             }
         }else
 

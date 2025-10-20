@@ -168,7 +168,7 @@ public class AppTest
     // Tests RechercheDomaineCommand
     @Test
     public void testRechercheDomaineExistant() {
-        RechercheDomaineCommand cmd = new RechercheDomaineCommand("uvsq.fr");
+        RechercheDomaineCommand cmd = new RechercheDomaineCommand("uvsq.fr",false);
         Object resultat = cmd.execute(dns);
         assertNotNull(resultat);
         assertTrue(resultat instanceof String);
@@ -179,7 +179,7 @@ public class AppTest
 
     @Test
     public void testRechercheDomaineInexistant() {
-        RechercheDomaineCommand cmd = new RechercheDomaineCommand("inexistant.com");
+        RechercheDomaineCommand cmd = new RechercheDomaineCommand("inexistant.com",false);
         Object resultat = cmd.execute(dns);
         assertNull(resultat);
     }
