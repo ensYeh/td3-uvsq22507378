@@ -1,9 +1,6 @@
 package fr.uvsq.cprog.collex;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiFunction;
@@ -64,11 +61,24 @@ public class Dns {
             DnsItem e =new DnsItem(ip,nom);
             if(!itemes.contains(e)) {
                 itemes.add(e);
+                saveItemToFile(e);
+
                 return 0;
             }
             else{
                 return -1;
             }
+    }
+    private void saveItemToFile(DnsItem item) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(Config.FILE_PATH, true))) {
+            writer.write(item.getIp().getipAdress());
+            writer.write(" ");
+            writer.write(item.getNom().getNomMachine());
+            writer.write("\n");
+            writer.flush();
+        } catch (IOException e) {
+            System.err.println("Erreur lors de la sauvegarde du fichier : " + e.getMessage());
+        }
     }
 
     @Override

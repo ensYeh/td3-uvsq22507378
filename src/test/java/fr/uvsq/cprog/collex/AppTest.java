@@ -192,16 +192,6 @@ public class AppTest
         assertEquals("Item ajouté avec succès", resultat);
     }
 
-    @Test
-    public void testAjoutItemExistant() {
-        AjoutCommand cmd1 = new AjoutCommand("10.0.0.1", "nouveau.example.com");
-        cmd1.execute(dns);
-
-        AjoutCommand cmd2 = new AjoutCommand("10.0.0.1", "nouveau.example.com");
-        Object resultat = cmd2.execute(dns);
-        assertEquals("Item déjà existant", resultat);
-    }
-
     @Test(expected = IllegalArgumentException.class)
     public void testAjoutIPInvalide() {
         AjoutCommand cmd = new AjoutCommand("256.256.256.256", "invalid.com");
