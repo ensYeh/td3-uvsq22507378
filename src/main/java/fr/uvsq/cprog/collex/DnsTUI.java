@@ -37,6 +37,10 @@ public class DnsTUI {
             default:
                 throw new IllegalArgumentException("Commande inconnue: " + parts[0]);
         }*/
+        if(parts[0].equals("add")){
+            return new AjoutCommand(parts[1],parts[2]);
+        }else
+
         if (parts[0].equals("ls")) {
             if (parts.length < 2) {
                 throw new IllegalArgumentException("Usage: ls [-a] domaine");
@@ -58,11 +62,8 @@ public class DnsTUI {
         if(NomMachine.checkNom(parts[0])){
           //  if (parts.length < 2) throw new IllegalArgumentException("Usage: nom <machine>");
             return new RechercheNomCommand(parts[0]);
-        }else if(parts[0].equalsIgnoreCase("add")){
-            return new AjoutCommand(parts[1],parts[2]);
         }
-
-       else return null;
+        else return null;
     }
 
     public void affiche(Object resultat) {
