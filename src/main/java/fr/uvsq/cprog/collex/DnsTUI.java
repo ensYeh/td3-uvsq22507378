@@ -37,6 +37,10 @@ public class DnsTUI {
             default:
                 throw new IllegalArgumentException("Commande inconnue: " + parts[0]);
         }*/
+        if(parts[0].equals("quit")){
+            return new QuitterCommand();
+
+        }else
         if(parts[0].equals("add")){
             return new AjoutCommand(parts[1],parts[2]);
         }else

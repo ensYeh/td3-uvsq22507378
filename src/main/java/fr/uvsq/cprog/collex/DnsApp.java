@@ -9,6 +9,8 @@ public class DnsApp {
         tui = new DnsTUI();
 
         System.out.println("=== DNS Application ===");
+        System.out.println("<IP>,<nom fqdn>, ls <nom de domain>, quit");
+
 
         boolean continuer = true;
         while(continuer) {
