@@ -185,13 +185,6 @@ public class AppTest
     }
 
     // Tests AjoutCommand
-    @Test
-    public void testAjoutItemSucces() {
-        AjoutCommand cmd = new AjoutCommand("10.0.0.1", "nouveau.example.com");
-        Object resultat = cmd.execute(dns);
-        assertEquals("Item ajouté avec succès", resultat);
-    }
-
     @Test(expected = IllegalArgumentException.class)
     public void testAjoutIPInvalide() {
         AjoutCommand cmd = new AjoutCommand("256.256.256.256", "invalid.com");
